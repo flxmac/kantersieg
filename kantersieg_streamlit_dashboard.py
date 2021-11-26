@@ -136,8 +136,8 @@ with st.expander("Und wer holt Positionen?"):
 
 ##################
 
-st.subheader("Wer hat im Direktvergleich die Nase vorn?")
-with st.expander("Auf in den Zweikampf..."):
+#st.subheader("Wer hat im Direktvergleich die Nase vorn?")
+#with st.expander("Auf in den Zweikampf..."):
 
        
 
