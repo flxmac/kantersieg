@@ -10,8 +10,7 @@ import os
 import streamlit as st
 import altair as alt
 import time
-import plotly.offline as pyo
-import plotly.express as px
+
 
 
 path = "C:/Users/Karsten/OneDrive/Python Scripting/10 spitch"
@@ -139,44 +138,7 @@ with st.expander("Und wer holt Positionen?"):
 
 st.subheader("Wer hat im Direktvergleich die Nase vorn?")
 with st.expander("Auf in den Zweikampf..."):
-    col1, col2 = st.columns(2)
-    
-    with col1: 
-        
-        p1 = st.selectbox(label = "Wähle einen Spieler", options = list(df["Spieler"].unique()))
-        df_p1 = df[df["Spieler"] == p1]
-        p1_min, p1_mean, p1_median, p1_max = df_p1["Punkte"].min(), df_p1["Punkte"].mean(), df_p1["Punkte"].median(), df_p1["Punkte"].max()
-        p1_values = [p1_min, p1_mean, p1_median, p1_max]
-        p1_list = [*p1_values, p1_values[0]]
 
-        
-        
-        
-    with col2:
-        p2 = st.selectbox(label = "Wähle einen Gegner", options = list(df["Spieler"].unique()))
-        
-        df_p2 = df[df["Spieler"] == p2]
-        p2_min, p2_mean, p1_median, p2_max = df_p2["Punkte"].min(), df_p2["Punkte"].mean(), df_p1["Punkte"].median(), df_p2["Punkte"].max()
-        p2_values = [p2_min, p2_mean, p1_median, p2_max]
-        p2_list = [*p2_values, p2_values[0]]
-
-        
-        
-    categories = ["Minimale Punkte", "Durchschnittliche Punkte pro Spieltag","Median", "Maximale Punkte"]
-    categories = [*categories, categories[0]]
-    spidernet = go.Figure(
-        data=[
-            go.Scatterpolar(r=p1_list, theta=categories,  name=p1),
-            go.Scatterpolar(r=p2_list, theta=categories,  name=p2)
-        ],
-        layout=go.Layout(
-            title=go.layout.Title(text='1 gegen 1'),
-            polar={'radialaxis': {'visible': True}},
-            showlegend=True
-        )
-    )
-    
-    st.plotly_chart(spidernet, use_container_width = True)
        
 
 
