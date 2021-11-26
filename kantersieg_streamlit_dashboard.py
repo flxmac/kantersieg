@@ -10,7 +10,6 @@ import os
 import streamlit as st
 import altair as alt
 import time
-import plotly.graph_objects as go
 import plotly.offline as pyo
 import plotly.express as px
 
