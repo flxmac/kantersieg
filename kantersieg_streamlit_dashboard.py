@@ -151,8 +151,6 @@ with st.expander("Auf in den Zweikampf..."):
 
 
 
-st.subheader("Pferderennen")
-
 ### calculate cumsum
 df["cumsum"] = df["Punkte"].cumsum()
 
