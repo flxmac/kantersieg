@@ -148,19 +148,6 @@ with st.expander("Auf in den Zweikampf..."):
 # loser["counter"] = 1
 
 
-st.subheader("La tapa")
-with st.expander("Der Deckel"):
-    loser = df[df["Platzierung Spieltag"] == 8]
-    loser["counter"] = 5
-    
-    
-    fig = px.pie(loser, values='counter', names='Spieler')
-    fig.update_traces(textinfo='value')
-    
-    
-    st.plotly_chart(fig, use_container_width=True)
-    
-    st.text("Alle Bußgelder in €...")
 
 
 
