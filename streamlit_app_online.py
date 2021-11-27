@@ -13,8 +13,6 @@ import time
 
 import altair as alt
 
-import plotly.figure_factory as ff
-
 from bokeh.transform import cumsum
 from bokeh.palettes import Category20c
 from bokeh.plotting import figure, show
