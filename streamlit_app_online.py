@@ -13,7 +13,6 @@ import time
 
 import altair as alt
 
-import plotly.graph_objects as go
 import plotly.figure_factory as ff
 
 from bokeh.transform import cumsum
