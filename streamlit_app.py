@@ -21,6 +21,7 @@ from bokeh.transform import cumsum
 from bokeh.palettes import Category20c
 from bokeh.plotting import figure, show
 
+import seaborn as sns
 
 
 
@@ -31,13 +32,6 @@ from bokeh.plotting import figure, show
 
 # # data import
 
-# df = pd.read_excel("spitch.xlsx", sheet_name = "S - 20,21 - Daten")
-# ref = pd.read_excel("ref.xlsx")
-
-# df.to_csv("df_csv")
-# ref.to_csv("ref_csv")
-
-# df_csv = pd.read_csv("df_csv")
 
 
 # path = r"C:\Users\Karsten\OneDrive\Python Scripting\23 streamlit dashboard\Dateien"
@@ -51,6 +45,12 @@ ref = pd.read_csv("https://raw.githubusercontent.com/flxmac/kantersieg/main/ref_
 # st.set_page_config(page_title='Katersieg Cockpit',
 #                     page_icon="https://cdn.pixabay.com/photo/2018/04/25/22/10/silhouette-3350710_1280.png",
 #                     layout="wide")
+
+
+saison = st.sidebar.selectbox("Wähle eine Saison", list(df["Saison"].unique()))
+
+df = df[df["Saison"] == saison]
+
 
 
 col1, col2 = st.columns(2)
@@ -139,14 +139,7 @@ with st.expander("Wähle einen Spieler aus"):
 st.subheader("Saisonübersicht")
 
 
-with st.expander("Die unverkleideten Fakten..."):
-    df["copy_spieltag"] = df["Platzierung Spieltag"].copy()
-    table = df.pivot_table(index = "Platzierung Spieltag", columns = "Spieler", values = "copy_spieltag", aggfunc = "count")
-    table.replace(np.nan, 0, inplace = True)
-    table = table.astype(int)
 
-    # st.table(table)
-    st.dataframe(table)
 
 
 with st.expander("Whisker Box-Plot"):
@@ -226,6 +219,22 @@ with st.expander("Und wer holt Positionen?"):
     
     st.text("Im Fußball ist die Anzahl der Punkte wichtiger, als die Anzahl der Tore...")
     st.text("...bei Spitch ist die Platzierung wichtiger als die Anzahl der Punnkte!")
+    
+    
+with st.expander("Die unverkleideten Fakten..."):
+    df["copy_spieltag"] = df["Platzierung Spieltag"].copy()
+    table = df.pivot_table(index = "Platzierung Spieltag", columns = "Spieler", values = "copy_spieltag", aggfunc = "count")
+    table.replace(np.nan, 0, inplace = True)
+    table = table.astype(int)
+    table.Index = "Platzierung"
+
+    # cm = sns.color_palette("coolwarm", as_cmap=True)
+    cm = sns.diverging_palette(20, 220, as_cmap=True)
+
+
+    table = table.style.background_gradient(cmap=cm)
+    # st.table(table)
+    st.dataframe(table)
 
 ##################
 
