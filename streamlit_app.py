@@ -25,26 +25,11 @@ import seaborn as sns
 
 
 
-# path = "C:/Users/Karsten/OneDrive/Python Scripting/10 spitch"
-# os.chdir(path)
-
-
-
-# # data import
-
-
-
-# path = r"C:\Users\Karsten\OneDrive\Python Scripting\23 streamlit dashboard\Dateien"
-# os.chdir(path)
 
 df = pd.read_csv("https://raw.githubusercontent.com/flxmac/kantersieg/main/df_csv")
 ref = pd.read_csv("https://raw.githubusercontent.com/flxmac/kantersieg/main/ref_csv")
 
 
-# # SETUP ------------------------------------------------------------------------
-# st.set_page_config(page_title='Katersieg Cockpit',
-#                     page_icon="https://cdn.pixabay.com/photo/2018/04/25/22/10/silhouette-3350710_1280.png",
-#                     layout="wide")
 
 
 saison = st.sidebar.selectbox("Wähle eine Saison", list(df["Saison"].unique()))
