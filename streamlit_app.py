@@ -31,26 +31,9 @@ from bokeh.plotting import figure, show
 
 # # data import
 
-# df = pd.read_excel("spitch.xlsx", sheet_name = "S - 20,21 - Daten")
-# ref = pd.read_excel("ref.xlsx")
+df = pd.read_csv("https://raw.githubusercontent.com/flxmac/kantersieg/main/df_csv")
+ref = pd.read_csv("https://raw.githubusercontent.com/flxmac/kantersieg/main/ref_csv")
 
-# df.to_csv("df_csv")
-# ref.to_csv("ref_csv")
-
-# df_csv = pd.read_csv("df_csv")
-
-
-# path = r"C:\Users\Karsten\OneDrive\Python Scripting\23 streamlit dashboard\Dateien"
-# os.chdir(path)
-
-df = pd.read_csv("https://github.com/flxmac/kantersieg/blob/2e99fb483f5d934a3ebe179bcd36a235601bd899/df_csv")
-ref = pd.read_csv("https://github.com/flxmac/kantersieg/blob/2e99fb483f5d934a3ebe179bcd36a235601bd899/ref_csv")
-
-
-# # SETUP ------------------------------------------------------------------------
-# st.set_page_config(page_title='Katersieg Cockpit',
-#                     page_icon="https://cdn.pixabay.com/photo/2018/04/25/22/10/silhouette-3350710_1280.png",
-#                     layout="wide")
 
 
 col1, col2 = st.columns(2)
